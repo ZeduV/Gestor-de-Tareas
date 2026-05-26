@@ -1,0 +1,179 @@
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  transition: all var(--transition-base);
+  animation: fadeInUp var(--transition-slow) ease-out both;
+}
+
+.card:hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(124, 92, 252, 0.12);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.card.completed {
+  opacity: 0.65;
+}
+
+.card.completed:hover {
+  opacity: 0.8;
+}
+
+/* Checkbox area */
+.checkArea {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.checkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  color: transparent;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+
+.checkBtn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-glow);
+}
+
+.checkBtn.checked {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.checkBtn.checked:hover {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  opacity: 0.85;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
+.taskTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+  word-break: break-word;
+}
+
+.card.completed .taskTitle {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.priorityBadge {
+  flex-shrink: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.priorityBadge.high {
+  background: rgba(255, 107, 107, 0.15);
+  color: var(--color-priority-high);
+}
+
+.priorityBadge.medium {
+  background: rgba(252, 196, 25, 0.15);
+  color: var(--color-priority-medium);
+}
+
+.priorityBadge.low {
+  background: rgba(81, 207, 102, 0.15);
+  color: var(--color-priority-low);
+}
+
+.taskDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  word-break: break-word;
+}
+
+.card.completed .taskDesc {
+  color: var(--color-text-muted);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-2);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.statusBadge.pendiente {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.statusBadge.completada {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+/* Actions */
+.actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.deleteBtn:hover {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .titleRow {
+    flex-wrap: wrap;
+  }
+}
