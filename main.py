@@ -253,3 +253,8 @@ def validar_sesion(authorization: str = Header(None)):
     usuario_id = obtener_usuario_id(token)
     
     return gestor.obtener_usuario(usuario_id)
+
+# --- INICIO DEL SERVIDOR ---
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
